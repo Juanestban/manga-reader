@@ -23,7 +23,7 @@ export default function Navigation() {
         );
     }
 
-    // Pulir
+    // Pulir - Analizar los fallos y formas de factorizar mejor el codigo
     const SessionButton = (props) => {
         return (
             <Link href={props.url}>
