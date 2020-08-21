@@ -5,10 +5,12 @@ import { useState } from 'react';
 export default function Navigation() {
     const [hasSession, setHasSession] = useState(false);
 
+    // Pulir
     const SessionChange = () => {
         setHasSession(!hasSession);
     }
 
+    // Pulir
     const RenderSessionButton = () => {
         if (hasSession) {
             return <SessionButton nameButtons="Profile" />
@@ -21,6 +23,7 @@ export default function Navigation() {
         );
     }
 
+    // Pulir
     const SessionButton = (props) => {
         return (
             <Link href={props.url}>
@@ -37,7 +40,7 @@ export default function Navigation() {
             </Link>
         );
     }
-
+    // Pulir
     SessionButton.defaultProps = {
         url: '/'
     }
