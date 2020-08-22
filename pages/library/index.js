@@ -1,11 +1,12 @@
-import { Navigation } from '../../components/navigation';
+import AppLayout from '../../components/AppLayout';
 
 
 const Library = () => {
     return (
         <>
-            <Navigation />
-            <h2>This is the Library from website</h2>
+            <AppLayout title="Manga Reader / Biblioteca">
+                <h2>This is the Library from website</h2>
+            </AppLayout>
         </>
     );
 }
