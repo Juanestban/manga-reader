@@ -3,48 +3,6 @@ import { useState } from 'react';
 
 
 export default function Navigation() {
-    const [hasSession, setHasSession] = useState(false);
-
-    // Pulir
-    const SessionChange = () => {
-        setHasSession(!hasSession);
-    }
-
-    // Pulir
-    const RenderSessionButton = () => {
-        if (hasSession) {
-            return <SessionButton nameButtons="Profile" />
-        }
-        return (
-            <>
-                <SessionButton nameButtons="Login" />
-                <SessionButton nameButtons="Sign in" />
-            </>
-        );
-    }
-
-    // Pulir - Analizar los fallos y formas de factorizar mejor el codigo
-    const SessionButton = (props) => {
-        return (
-            <Link href={props.url}>
-                <a 
-                    onClick={SessionChange}
-                    style={{
-                        padding: '8px',
-                        color: '#000',
-                        marginLeft: 8
-                    }}
-                >
-                    {props.nameButtons}
-                </a>
-            </Link>
-        );
-    }
-    // Pulir
-    SessionButton.defaultProps = {
-        url: '/'
-    }
-
     return (
         <>
             <header>
@@ -68,7 +26,19 @@ export default function Navigation() {
                         </Link>
                     </li>
                     <li>
-                        <RenderSessionButton />
+                        <Link href="/">
+                            <a>Sign in</a>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="/">
+                            <a>Sign up</a>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="/">
+                            <a>Profile</a>
+                        </Link>
                     </li>
                 </ul>
             </header>
