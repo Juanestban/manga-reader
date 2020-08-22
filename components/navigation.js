@@ -1,9 +1,20 @@
 import Link from 'next/link';
-// import { useState } from 'react';
+import { useState } from 'react';
+import SessionButtons from './LinksButtons/buttonsLinks';
 
 
+// Ajustar los estados para quee no se reseteen al desmontar el componenete (Pasando de 'inicio' / 'library')
 export default function Navigation() {
-    // Editar para hacer un mapeo de todos los anchors del navbar
+    const [hasLog, setHasLog] = useState(false);
+
+    const ButtonLog = (props) => {
+        return (
+            <li>
+                <button onClick={() => setHasLog(!hasLog)}>{props.nameBtn}</button>
+            </li>
+        );
+    }
+
     return (
         <>
             <header>
@@ -15,36 +26,17 @@ export default function Navigation() {
                     </Link>
                 </div>
                 <ul>
-                    <li>
-                        <Link href="/">
-                            <a>Inicio</a>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="/library">
-                            <a>Biblioteca</a>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="/">
-                            <a>Novels</a>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="/">
-                            <a>Sign in</a>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="/">
-                            <a>Sign up</a>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="/">
-                            <button>Profile</button>
-                        </Link>
-                    </li>
+                    <SessionButtons />
+                    {
+                        hasLog
+                            ? <ButtonLog nameBtn="Profile" />
+                            : (
+                                <>
+                                    <ButtonLog nameBtn="Sign in" />
+                                    <ButtonLog nameBtn="Sign up" />
+                                </>
+                            )
+                    }
                 </ul>
             </header>
 

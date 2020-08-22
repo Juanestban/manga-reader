@@ -1,4 +1,5 @@
 import AppLayout from '../components/AppLayout/index';
+import ListCards from '../components/Cards/listCards';
 
 
 const Home = () => {
@@ -6,7 +7,7 @@ const Home = () => {
         <div className="root">
             <AppLayout title="Manga Reader">
                 <h2>Index</h2>
-                <button>Hola, Soy un Button</button>
+                <ListCards />
             </AppLayout>
         </div>
     );
