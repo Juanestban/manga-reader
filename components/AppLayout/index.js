@@ -12,11 +12,11 @@ export default function AppLayout({ children, title }) {
             </Head>
 
             <Navigation />
-            
+
             <main>
                 {children}
             </main>
-            
+
             <Footer />
 
             <style jsx global>{`
