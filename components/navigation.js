@@ -1,13 +1,18 @@
 import Link from 'next/link';
-import { useState } from 'react';
+// import { useState } from 'react';
 
 
 export default function Navigation() {
+    // Editar para hacer un mapeo de todos los anchors del navbar
     return (
         <>
             <header>
                 <div className="title">
-                    <h1>Manga Reader</h1>
+                    <Link href="/">
+                        <a className="titleNavbar">
+                            <h1>Manga Reader</h1>
+                        </a>
+                    </Link>
                 </div>
                 <ul>
                     <li>
@@ -37,39 +42,23 @@ export default function Navigation() {
                     </li>
                     <li>
                         <Link href="/">
-                            <a>Profile</a>
+                            <button>Profile</button>
                         </Link>
                     </li>
                 </ul>
             </header>
 
             <style jsx>{`
-                header {
-                    display: flex;
-                    justify-content: space-between;
-                    height: 49px;
-                    position: sticky;
-                    padding: 0 40px;
-                    border-bottom: 1px solid #eaeaea;
+                .title {
+                    overflow: hidden;
                 }
 
-                header ul {
-                    display: flex;
-                    align-items: center;
-                }
-
-                li {
-                    list-style: none;
-                    margin: 0 8px;
-                }
-
-                a {
-                    padding: 8px;
+                .titleNavbar {
                     color: #000;
                 }
 
-                a:hover {
-                    /* */
+                .titleNavbar:hover {
+                    color: #09f;
                 }
             `}</style>
         </>
