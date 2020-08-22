@@ -3,6 +3,7 @@ import { useState } from 'react';
 import SessionButtons from './LinksButtons/buttonsLinks';
 
 
+// Ajustar los estados para quee no se reseteen al desmontar el componenete (Pasando de 'inicio' / 'library')
 export default function Navigation() {
     const [hasLog, setHasLog] = useState(false);
 
