@@ -6,7 +6,8 @@ const styleContentMarco = {
     padding: '10px 20px',
     flexWrap: 'wrap',
     border: '1px solid #eaeaea',
-    borderRadius: 10
+    borderRadius: 10,
+    boxSizing: 'border-box'
 }
 
 

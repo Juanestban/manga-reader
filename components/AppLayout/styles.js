@@ -7,6 +7,7 @@ export const globalStyles = css.global`
         body {
             padding: 0;
             margin: 0;
+            box-sizing: border-box;
         }
 
         h1, h2, h3 {
