@@ -1,32 +1,42 @@
 import Link from 'next/link';
 import { useState } from 'react';
-import SessionButtons from './LinksButtons/buttonsLinks';
-import HomeLogo from './icon/HomeLogo';
+import HomeLogo from './Icon/HomeLogo';
 
-// firebase
-import { loginWithGoogle } from '../firebase/client';
+// components
+import SessionButtons from './LinksButtons/buttonsLinks';
+import ButtonSesion from './Buttons/buttonSesion';
+import ModalSession from './Modal/Session/modalSesion';
+
 
 // Ajustar los estados para quee no se reseteen al desmontar el componenete (Pasando de 'inicio' / 'library')
 export default function Navigation() {
     const [hasLog, setHasLog] = useState(false);
+    // Abrir modal
+    const [modalState, setModalState] = useState(false);
+    const [modalStateSession, setModalStateSession] = useState(true);
 
-    const ButtonLog = (props) => {
-        // Realizar un portal para un contenedor que aparezca y agregar un boton que
-        // realize la funcion 'handleClick' y que el 'sign in' - 'sign up' sirvan para llamar a ese
-        // portal
-        return (
-            <li>
-                <button onClick={handleClick}>{props.nameBtn}</button>
-            </li>
-        );
-    }
+    const handleModalSesion = (stateLog) => {
+        setModalState(true);
+        stateLog
+        ? setModalStateSession(stateLog)
+        : setModalStateSession(stateLog);
+    };
 
-    const handleClick = () => {
-        loginWithGoogle().then(user => {
-            console.log(user);
-        }).catch(err => console.log(err));
-
-        // setHasLog(!hasLog);
+    const ButtonsSignInUp = () => {
+        return hasLog
+            ? <ButtonSesion modalState={() => handleModalSesion(true)}>
+                Profile
+            </ButtonSesion>
+            : <>
+                <ButtonSesion
+                    modalState={() => handleModalSesion(true)}>
+                    Sign in
+                </ButtonSesion>
+                <ButtonSesion
+                    modalState={() => handleModalSesion(false)}>
+                    Sign up
+                </ButtonSesion>
+            </>
     }
 
     return (
@@ -42,18 +52,15 @@ export default function Navigation() {
                 </div>
                 <ul>
                     <SessionButtons />
-                    {
-                        hasLog
-                            ? <ButtonLog nameBtn="Profile" />
-                            : (
-                                <>
-                                    <ButtonLog nameBtn="Sign in" />
-                                    <ButtonLog nameBtn="Sign up" />
-                                </>
-                            )
-                    }
+                    {ButtonsSignInUp()}
                 </ul>
             </header>
+            {modalState
+                && <ModalSession 
+                        stateTypeSession={modalStateSession}
+                        changeClick={() => setModalState(false)} 
+                    />
+            }
 
             <style jsx>{`
                 .title {
