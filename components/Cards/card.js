@@ -1,3 +1,6 @@
+// Hacer un fetch para traer todos los componentes y datos de las cards
+// en otro componente
+// desestructuracion del objeto que obtenga del firebase
 const thumbImg = {
     BerserkGluttony: '/img/imgCards/BerserkOfGluttony.jpg',
     Konosuba: '/img/imgCards/Konosuba.png',
@@ -40,7 +43,7 @@ export default function Card() {
                 .card {
                     width: 15%;
                     height: 270px;
-                    margin: 10px 0;
+                    margin: 10px 10px;
                     over-flow: hidden;
                     box-sizing: border-box;
                     position: sticky;

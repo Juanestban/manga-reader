@@ -2,7 +2,7 @@ import Card from "./card";
 
 const styleContentMarco = {
     display: 'flex',
-    justifyContent: 'space-between',
+    justifyContent: 'start',
     padding: '10px 20px',
     flexWrap: 'wrap',
     border: '1px solid #eaeaea',
