@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import SessionButtons from './LinksButtons/buttonsLinks';
+import HomeLogo from './icon/HomeLogo';
 
 
 // Ajustar los estados para quee no se reseteen al desmontar el componenete (Pasando de 'inicio' / 'library')
@@ -21,6 +22,7 @@ export default function Navigation() {
                 <div className="title">
                     <Link href="/">
                         <a className="titleNavbar">
+                            <HomeLogo width={42} height={42} />
                             <h1>Manga Reader</h1>
                         </a>
                     </Link>
@@ -46,7 +48,12 @@ export default function Navigation() {
                 }
 
                 .titleNavbar {
+                    display: flex;
                     color: #000;
+                }
+
+                .titleNavbar > :global(svg) {
+                    margin-right: 8px;
                 }
 
                 .titleNavbar:hover {
