@@ -18,8 +18,8 @@ export default function Navigation() {
     const handleModalSesion = (stateLog) => {
         setModalState(true);
         stateLog
-        ? setModalStateSession(stateLog)
-        : setModalStateSession(stateLog);
+            ? setModalStateSession(stateLog)
+            : setModalStateSession(stateLog);
     };
 
     const ButtonsSignInUp = () => {
@@ -56,10 +56,10 @@ export default function Navigation() {
                 </ul>
             </header>
             {modalState
-                && <ModalSession 
-                        stateTypeSession={modalStateSession}
-                        changeClick={() => setModalState(false)} 
-                    />
+                && <ModalSession
+                    stateTypeSession={modalStateSession}
+                    changeClick={() => setModalState(false)}
+                />
             }
 
             <style jsx>{`
