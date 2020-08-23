@@ -24,11 +24,16 @@ export const globalStyles = css.global`
         }
 
         button {
-            padding: 8px;
-            border: none;
             background-color: transparent;
+            border: none;
             cursor: pointer;
             font-size: 16px;
+            display: flex;
+            padding: 5px 8px;
+            align-items: center;
+            line-height: 25px;
+            border-radius: 5px;
+            margin: 0 auto;
         }
 
         p {
