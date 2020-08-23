@@ -11,6 +11,9 @@ export default function Navigation() {
     const [hasLog, setHasLog] = useState(false);
 
     const ButtonLog = (props) => {
+        // Realizar un portal para un contenedor que aparezca y agregar un boton que
+        // realize la funcion 'handleClick' y que el 'sign in' - 'sign up' sirvan para llamar a ese
+        // portal
         return (
             <li>
                 <button onClick={handleClick}>{props.nameBtn}</button>
@@ -19,7 +22,9 @@ export default function Navigation() {
     }
 
     const handleClick = () => {
-        loginWithGoogle();
+        loginWithGoogle().then(user => {
+            console.log(user);
+        }).catch(err => console.log(err));
 
         // setHasLog(!hasLog);
     }
