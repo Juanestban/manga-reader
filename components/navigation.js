@@ -3,6 +3,8 @@ import { useState } from 'react';
 import SessionButtons from './LinksButtons/buttonsLinks';
 import HomeLogo from './icon/HomeLogo';
 
+// firebase
+import { loginWithGoogle } from '../firebase/client';
 
 // Ajustar los estados para quee no se reseteen al desmontar el componenete (Pasando de 'inicio' / 'library')
 export default function Navigation() {
@@ -11,9 +13,15 @@ export default function Navigation() {
     const ButtonLog = (props) => {
         return (
             <li>
-                <button onClick={() => setHasLog(!hasLog)}>{props.nameBtn}</button>
+                <button onClick={handleClick}>{props.nameBtn}</button>
             </li>
         );
+    }
+
+    const handleClick = () => {
+        loginWithGoogle();
+
+        // setHasLog(!hasLog);
     }
 
     return (
