@@ -1,8 +1,15 @@
 import ReactDOM from 'react-dom';
 
 export default function Modal({ children, onClose }) {
+    const pageInit = document.getElementById('__next');
 
-    return (
+    if (document.getElementById('modal-portal') === null){
+        const portal = document.createElement('div');
+        portal.setAttribute('id', 'modal-portal');
+        pageInit.appendChild(portal);
+    }
+
+    return ReactDOM.createPortal(
         <>
             <div className="modal">
                 <div className="modal-content">
@@ -48,6 +55,7 @@ export default function Modal({ children, onClose }) {
                     z-index: 998;
                 }
             `}</style>
-        </>
+        </>,
+        document.getElementById('modal-portal')
     );
 }

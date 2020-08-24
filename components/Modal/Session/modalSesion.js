@@ -1,7 +1,6 @@
-import Modal from "../modal";
+import ModalPortal from "../modal";
 import ButtonSesion from "../../Buttons/buttonSesion";
 import { useState } from "react";
-
 
 export default function ModalSession({ changeClick, stateTypeSession = true }) {
     const [sessionState, setSessionState] = useState(stateTypeSession);
@@ -44,7 +43,7 @@ export default function ModalSession({ changeClick, stateTypeSession = true }) {
 
     return (
         <>
-            <Modal onClose={changeClick}>
+            <ModalPortal onClose={changeClick}>
                 {sessionState
                     ? <StateSesion
                         title="Esto es el Login"
@@ -53,7 +52,7 @@ export default function ModalSession({ changeClick, stateTypeSession = true }) {
                         title="Esto es el Registro"
                         nameButton="Sign up" />
                 }
-            </Modal>
+            </ModalPortal>
 
             <style jsx>{`
                 .body > :global(li button) {
