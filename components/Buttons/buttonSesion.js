@@ -12,11 +12,15 @@ const handleSesionClick = () => {
     // setHasLog(!hasLog);
 }
 
-export default function ButtonSesion({ modalState = handleSesionClick, children }) {
+export default function ButtonSesion({ modalState = handleSesionClick, children, className }) {
     return (
         <>
             <li>
-                <button onClick={modalState}>{children}</button>
+                <button 
+                    className={className}
+                    onClick={modalState}>
+                    {children}
+                </button>
             </li>
             <style jsx>{`
                 li {
