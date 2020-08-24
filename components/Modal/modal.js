@@ -16,7 +16,6 @@ export default function Modal({ children, onClose }) {
                     <section>
                         {children}
                     </section>
-                    <button onClick={onClose}>Close</button>
                 </div>
                 <div className="modal-close" onClick={onClose}></div>
             </div>
