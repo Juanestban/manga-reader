@@ -3,6 +3,12 @@ import css from 'styled-jsx/css';
 export const globalStyles = css.global`
 /*styles Globals*/
 
+    /*Selector del navegador (marcador/delineador)*/
+    ::selection {
+        background-color: #24292E;
+        color: rgba(253,126,20,0.9);
+    }
+
     html,
         body {
             padding: 0;
