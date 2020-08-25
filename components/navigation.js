@@ -1,19 +1,32 @@
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import HomeLogo from './Icon/HomeLogo';
 
 // components
 import SessionButtons from './LinksButtons/buttonsLinks';
-import ButtonSesion from './Buttons/buttonSesion';
 import ModalSession from './Modal/Session/modalSesion';
+import ButtonsSignInOrUp from './ButtonSignInOrUp/index'
+import { loginWithGoogle, onAuthStateChanged } from '../firebase/client';
 
 
 // Ajustar los estados para quee no se reseteen al desmontar el componenete (Pasando de 'inicio' / 'library')
 export default function Navigation() {
-    const [hasLog, setHasLog] = useState(false);
+    const [user, setUser] = useState(undefined);
     // Abrir modal
     const [modalState, setModalState] = useState(false);
     const [modalStateSession, setModalStateSession] = useState(true);
+
+    useEffect(() => {
+        onAuthStateChanged(user => setUser(user));
+    }, []);
+
+    const handleSesionClickGoogle = () => {
+        loginWithGoogle().then(user => {
+            const { firstName, avatar } = user;
+            setModalState(false);
+            setUser(user);
+        }).catch(err => console.log(err));
+    }
 
     const handleModalSesion = (stateLog) => {
         setModalState(true);
@@ -22,22 +35,6 @@ export default function Navigation() {
             : setModalStateSession(stateLog);
     };
 
-    const ButtonsSignInUp = () => {
-        return hasLog
-            ? <ButtonSesion modalState={() => handleModalSesion(true)}>
-                Profile
-            </ButtonSesion>
-            : <>
-                <ButtonSesion
-                    modalState={() => handleModalSesion(true)}>
-                    Sign in
-                </ButtonSesion>
-                <ButtonSesion
-                    modalState={() => handleModalSesion(false)}>
-                    Sign up
-                </ButtonSesion>
-            </>
-    }
 
     return (
         <>
@@ -52,11 +49,12 @@ export default function Navigation() {
                 </div>
                 <ul>
                     <SessionButtons />
-                    {ButtonsSignInUp()}
+                    <ButtonsSignInOrUp user={user} handleModalSesion={handleModalSesion} />
                 </ul>
             </header>
             {modalState
                 && <ModalSession
+                    handleUSerGoogle={handleSesionClickGoogle}
                     stateTypeSession={modalStateSession}
                     changeClick={() => setModalState(false)}
                 />
