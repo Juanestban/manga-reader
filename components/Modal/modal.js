@@ -33,7 +33,7 @@ export default function Modal({ children, onClose }) {
                 }
 
                 .modal-content {
-                    background-color: #f0f0f0;
+                    background-color: #fff;
                     width: 500px;
                     padding: 10px 20px 25px 20px;
                     /*height: 50vh; */
