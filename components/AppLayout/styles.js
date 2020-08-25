@@ -42,7 +42,7 @@ export const globalStyles = css.global`
             margin: 0 auto;
         }
 
-        p {
+        p, label {
             font-family: 'Noto Sans JP', sans-serif;
         }
                 
@@ -72,6 +72,13 @@ export const globalStyles = css.global`
 
         header ul li a:hover, button:hover {
             color: #09f;
+        }
+
+        .img-profile-avatar {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            margin-right: 5px;
         }
 `
 
