@@ -18,3 +18,15 @@ Compila el codigo para dejarlo refactorizado y minificado en la carpeta `/build`
 ## Redes Sociales
 Mi GitHub: [Juanestban](https://github.com)
 Mi Twitter: [@juanestbandev](https://twitter.com)
+
+
+
+
+Datos que pueden servir para posibles adelantos
+
+[...] estos 3 puntos funcionan para traer lo que ya se tenia =>
+
+const handleSubmit = () => {
+    setUser(...user, 'new User');       // estoy trallendo todos los datos almacenados de user y de paso le agrego
+                                        // otros
+}
