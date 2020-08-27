@@ -6,6 +6,7 @@ import HomeLogo from './Icon/HomeLogo';
 import SessionButtons from './LinksButtons/buttonsLinks';
 import ModalSession from './Modal/Session/modalSesion';
 import ButtonsSignInOrUp from './ButtonSignInOrUp/index'
+import Uploader from './Icon/uploader'
 import { loginWithGoogle, onAuthStateChanged } from '../firebase/client';
 
 
@@ -49,6 +50,13 @@ export default function Navigation() {
                 </div>
                 <ul>
                     <SessionButtons />
+                    <li>
+                        <Link href="/uploadMangas">
+                            <a className="uploadMangaLink">
+                                <Uploader width="15" height="15" />
+                            </a>
+                        </Link>
+                    </li>
                     <ButtonsSignInOrUp user={user} handleModalSesion={handleModalSesion} />
                 </ul>
             </header>
@@ -76,6 +84,16 @@ export default function Navigation() {
 
                 .titleNavbar:hover {
                     color: #09f;
+                }
+
+                .uploadMangaLink {
+                    display: flex;
+                    align-items: center;
+                }
+
+                .uploadMangaLink:hover,
+                :global(.img-profile:hover) {
+                    fill: #484f5b;
                 }
             `}</style>
         </>
