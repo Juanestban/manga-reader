@@ -62,7 +62,7 @@ export const globalStyles = css.global`
 
         header ul li {
             list-style: none;
-            margin: 0 8px;
+            margin: 0 5px;
         }
 
         header ul li a {
@@ -75,8 +75,8 @@ export const globalStyles = css.global`
         }
 
         .img-profile-avatar {
-            width: 35px;
-            height: 35px;
+            width: 24px;
+            height: 24px;
             border-radius: 50%;
             margin-right: 5px;
         }
@@ -135,10 +135,10 @@ input[type="password"]:hover {
     color: #212529;
 }
 
-input[type="text"]:active, 
-input[type="text"]:focus,
-input[type="password"]:active,
-input[type="password"]:focus {
+.form-input input[type="text"]:active, 
+.form-input input[type="text"]:focus,
+.form-input input[type="password"]:active,
+.form-input input[type="password"]:focus {
     border-color: #6777ef;
 }
 
@@ -167,9 +167,98 @@ li {
     color: #fff;
 }
 
+/* Formulario de upload Mangas */
+
+.contentForm {
+    padding: 20px 100px;
+}
+
+.contentForm form {
+    padding: 40px;
+    border: 1px solid #484f5b;
+    box-shadow: 0 0.46875rem 2.1875rem rgba(90,97,105,0.1), 
+        0 0.9375rem 1.40625rem rgba(90,97,105,0.1), 
+        0 0.25rem 0.53125rem rgba(90,97,105,0.12), 
+        0 0.125rem 0.1875rem rgba(90,97,105,0.1);
+    border-radius: 1rem;
+}
+
+.contentForm form .form-group label {
+    font-size: 15px;
+}
+
+.contentForm form .form-input input, 
+.contentForm form .form-input textarea {
+    width: 100%;
+    padding: 10px 8px;
+    height: inherit;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+}
+/* 
+.contentForm form .form-input textarea {
+    height: 500px;
+} */
+
+.contentForm form .form-input input:hover,
+.contentForm form .form-input textarea:hover
+select:hover {
+    color: #212529;
+}
+
+.contentForm form .form-input input:active, 
+.contentForm form .form-input input:focus, 
+.contentForm form .form-input textarea:active,
+.contentForm form .form-input textarea:focus,
+select:focus, select:active {
+    border-color: #6777ef;
+}
+
+.divButtonUpload {
+    position: relative;
+    width: 150px;
+    padding: 10px;
+    text-align: center;
+    background-color: #24292E;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.divButtonUpload label {
+    color: #fff;
+    cursor: pointer;
+}
+
 .buttonFileUpload {
-    border: 1px solid #09f;
-    padding: 5px 8px;
-    background-color: transparent;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.buttonSubmitFormUploader {
+    background-color: #24292E;
+    border-radius: 0.25rem;
+    color: #fff;
+    padding-top: 8px;
+}
+
+.buttonSubmitFormUploader:hover,
+.divButtonUpload:hover {
+    background-color: #293139;
+    color: #fff;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
 }
 `
