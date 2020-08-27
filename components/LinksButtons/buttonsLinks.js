@@ -3,13 +3,13 @@ import Link from 'next/link';
 const arrayButton = [
     "Inicio",
     "Biblioteca",
-    "Novels"
+    "Subir mangas"
 ]
 
 const arrayLinks = [
     "/",
     "/library",
-    "/"
+    "/uploadMangas"
 ]
 
 const buttonsArray = Object.keys(arrayButton);

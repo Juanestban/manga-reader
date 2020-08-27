@@ -89,3 +89,87 @@ export default css`
         padding: 20px 40px;
     }
 `
+
+
+export const styleForms = css`
+.form-group {
+    display: flex;
+    margin-bottom: 8px;
+}
+
+.password-form {
+    justify-content: space-between;
+}
+
+label {
+    font-size: 13px;
+}
+
+.ForgotPassword {
+    font-size: 13px;
+    color: #6777ef;
+    cursor: pointer;
+}
+
+.ForgotPassword:hover {
+    text-decoration: underline;
+}
+
+.form-input {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 0px 15px;
+    border-radius: 0.25rem;
+    font-size: 14px;
+    height: 42px;
+    border: 1px solid #ced4da;
+    text-align: left;
+}
+
+input[type="text"]:hover, 
+input[type="password"]:hover {
+    color: #212529;
+}
+
+input[type="text"]:active, 
+input[type="text"]:focus,
+input[type="password"]:active,
+input[type="password"]:focus {
+    border-color: #6777ef;
+}
+
+.checkbox-control label,
+.checkbox-control input  {
+    cursor: pointer;
+}
+
+li {
+    list-style: none;
+}
+
+.btnToLogin {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    line-height: inherit;
+    height: 40px;
+    margin-top: 20px;
+    background-color: #6777ef;
+    color: #fff;
+}
+
+.btnToLogin:hover {
+    background-color: #4f5ece;
+    color: #fff;
+}
+
+.buttonFileUpload {
+    border: 1px solid #09f;
+    padding: 5px 8px;
+    background-color: transparent;
+}
+`
