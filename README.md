@@ -16,8 +16,8 @@ Levanta el servidor preparado para el despliegue
 Compila el codigo para dejarlo refactorizado y minificado en la carpeta `/build` donde tendremos el archivo `index.html`  de todo el proyecto compilado
 
 ## Redes Sociales
-Mi GitHub: [Juanestban](https://github.com)
-Mi Twitter: [@juanestbandev](https://twitter.com)
+Mi GitHub: [Juanestban](https://github.com/Juanestban)
+Mi Twitter: [@juanestbandev](https://twitter.com/juanestbandev)
 
 
 
