@@ -18,13 +18,17 @@ export default function Navigation() {
     const [modalStateSession, setModalStateSession] = useState(true);
 
     useEffect(() => {
-        onAuthStateChanged(user => setUser(user));
+        onAuthStateChanged(user => { 
+            setUser(user);
+            localStorage.setItem('user', JSON.stringify(user));
+         });
     }, []);
 
     const handleSesionClickGoogle = () => {
         loginWithGoogle().then(user => {
             setModalState(false);
             setUser(user);
+            localStorage.setItem('user', JSON.stringify(user));
         }).catch(err => console.log(err));
     }
 
