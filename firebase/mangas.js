@@ -34,3 +34,9 @@ export const getMangasFirstTime = (onChange) => {
         onChange(mangas);
     });
 }
+
+// Post
+
+export const postMangas = (manga) => {
+    return firestore.collection('mangas').add(manga);
+}
