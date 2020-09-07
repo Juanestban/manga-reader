@@ -3,14 +3,14 @@ import { firestore } from './key';
 
 // Modificar
 const mapAllMangas = (mangas, id) => {
-    const { name, imgPortada, category } = mangas;
-    console.log(name, imgPortada, category);
+    const { name, imgPortada, category, type } = mangas;
 
     return {
         id,
         name,
         imgPortada,
-        category
+        category,
+        type
     }
 }
 

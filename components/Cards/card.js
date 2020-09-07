@@ -1,5 +1,14 @@
 export default function Card({ dataGetter }) {
-    const {id, name, imgCard, category} = dataGetter;
+    const {id, name, imgCard, category, type} = dataGetter;
+    let color, hover;
+
+    if (type === 'manga') {
+        color = 'rgb(34, 136, 170)';
+        hover = '#28a1ca';
+    } else {
+        color = 'rgb(4, 64, 95)';
+        hover = '#05537c';
+    }
 
     return (
         <>
@@ -7,6 +16,7 @@ export default function Card({ dataGetter }) {
                 <div className="text">
                     <h4>{name}</h4>
                 </div>
+                <button className="type-read">{type.toUpperCase()}</button>
                 <img
                     src={imgCard}
                     alt="Oregairu"
@@ -41,6 +51,24 @@ export default function Card({ dataGetter }) {
                     font-size: .96rem;
                 }
 
+                .type-read {
+                    position: absolute;
+                    font-size: .85rem;
+                    padding: 0 8px;
+                    top: 30px;
+                    left: .5rem;
+                    background-color: ${color};
+                    color: #fff;
+                    border: none;
+                    box-shadow: transparent;
+
+                    z-index: 1;
+                }
+
+                .type-read:hover {
+                    background-color: ${hover};
+                }
+
                 .text-category {
                     text-align: center;
                     bottom: 15px;
@@ -58,10 +86,6 @@ export default function Card({ dataGetter }) {
 
                 .Shoujo {
                     background-color: rgba(232, 62, 140, 0.9);
-                }
-
-                .Novel {
-                    background-color: rgba(34, 136, 170, 0.9);
                 }
 
                 img {
