@@ -2,7 +2,7 @@ export default function Card({ dataGetter }) {
     const {id, name, imgCard, category, type} = dataGetter;
     let color, hover;
 
-    if (type === 'manga') {
+    if (type === 'Manga') {
         color = 'rgb(34, 136, 170)';
         hover = '#28a1ca';
     } else {
@@ -19,7 +19,7 @@ export default function Card({ dataGetter }) {
                 <button className="type-read">{type.toUpperCase()}</button>
                 <img
                     src={imgCard}
-                    alt="Oregairu"
+                    alt={name}
                     draggable="false" />
                 <div className={'text text-category ' + category}>
                     <h4>{category}</h4>
