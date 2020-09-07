@@ -3,9 +3,11 @@ import Navigation from '../navigation';
 import Footer from '../footer';
 
 // style
-import styles, {globalStyles} from './styles';
+import styles, { globalStyles } from './styles';
 
-export default function AppLayout({ children, title }) {
+
+export default function AppLayout({ children, title, userData }) {
+
     return (
         <>
             <Head>
