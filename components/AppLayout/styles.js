@@ -42,7 +42,7 @@ export const globalStyles = css.global`
             margin: 0 auto;
         }
 
-        p, label {
+        p, label, textarea {
             font-family: 'Noto Sans JP', sans-serif;
         }
                 
@@ -94,7 +94,23 @@ export default css`
 export const styleForms = css`
 .form-group {
     display: flex;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.content-type {
+    display: flex;
+    font-size: 15px;
+    align-items: center;
+}
+
+.content-type p {
+    margin: 0;
+}
+
+.content-type button {
+    border: 1px solid #2288aa;
+    margin-left: 5px;
 }
 
 .password-form {
@@ -103,6 +119,10 @@ export const styleForms = css`
 
 label {
     font-size: 13px;
+}
+
+textarea {
+    font-size: 14px;
 }
 
 .ForgotPassword {
@@ -223,6 +243,7 @@ select:focus, select:active {
     border-radius: 0.25rem;
     overflow: hidden;
     cursor: pointer;
+    margin-bottom: 20px;
 }
 
 .divButtonUpload label {
