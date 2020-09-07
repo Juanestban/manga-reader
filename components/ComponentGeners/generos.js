@@ -1,6 +1,3 @@
-import { useEffect } from "react";
-
-
 const generos = [
     "Acción",
     "Aventura",
@@ -50,14 +47,29 @@ const generos = [
     "Guerra",
 ]
 
-export default function Generos() {
+const sendGen = []
+
+export default function Generos({valueSent}) {
+    const handleChangeCheckBox = (e) => {
+        const { checked, value } = e.target
+        if (checked) {
+            // valueSent(value)
+            sendGen.push(value)
+            valueSent(sendGen)
+        } else {
+            const position = sendGen.indexOf(value)
+            sendGen.splice(position, 1)
+            valueSent(sendGen)
+        }
+    }
+
     return (
         <>
             <div className="contenedor">
                 {
                     generos.map((gen, index) => (
                         <div key={index} className="content">
-                            <input onChange={e => {console.log(e.target.checked)}} id={gen} type="checkbox" />
+                            <input onChange={handleChangeCheckBox} id={gen} type="checkbox" value={gen} />
                             <label htmlFor={gen}>{gen}</label>
                         </div>
                     ))
@@ -70,7 +82,6 @@ export default function Generos() {
                     display: flex;
                     justify-content: center;
                     flex-wrap: wrap;
-                    border: 1px solid red;
                     margin-bottom: 20px;
                 }
                 .contenedor .content {
@@ -96,16 +107,28 @@ export default function Generos() {
                     border: 1px solid #ced4da;
                     border-radius: 5px;
                 }
-                
-                input:checked + label {
-                    background-color: blue;
+
+                input + label:after {
+                    content: "";
+                    display: none;
+                    width: 12px;
+                    height: 12px;
+                    position: absolute;
+                    margin-left: 1px;
+                    background-color: #28b463;
+                    border: 1px solid #28b463;
+                    clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
                 }
 
                 input:checked + label:before {
                     border-color: green;
                 }
 
+                input:checked + label:after {
+                    display: block;
+                }
+
             `}</style>
         </>
-    );
+    )
 } 
