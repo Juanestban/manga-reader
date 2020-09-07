@@ -23,7 +23,6 @@ export default function Navigation() {
 
     const handleSesionClickGoogle = () => {
         loginWithGoogle().then(user => {
-            const { firstName, avatar } = user;
             setModalState(false);
             setUser(user);
         }).catch(err => console.log(err));
@@ -91,9 +90,14 @@ export default function Navigation() {
                     align-items: center;
                 }
 
+                .uploadMangaLink,
+                :global(.img-profile) {
+                    fill: #293139;
+                }
+
                 .uploadMangaLink:hover,
                 :global(.img-profile:hover) {
-                    fill: #484f5b;
+                    fill: #000000;
                 }
             `}</style>
         </>

@@ -2,8 +2,9 @@ import firebase from './key';
 
 
 const mapUserFromFirebaseAuthToUser = (user) => {
-    const { displayName, photoURL } = user;
+    const { displayName, photoURL, uid } = user;
     return {
+        id: uid,
         firstName: displayName,
         avatar: photoURL
     };
