@@ -1,4 +1,5 @@
 import AppLayout from '../../components/AppLayout/index';
+import Generos from '../../components/ComponentGeners/generos';
 
 // style Forms
 import { styleForms } from '../../components/AppLayout/styles';
@@ -32,6 +33,7 @@ const FormUpload = () => {
                     <div className="form-group">
                         <label htmlFor="Form">Genero</label>
                     </div>
+                    <Generos />
                     <div className="form-input">
                         <input
                             type="text" />
