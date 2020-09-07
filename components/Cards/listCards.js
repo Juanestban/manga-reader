@@ -22,15 +22,14 @@ export default function ListCards() {
     useEffect(() => {
         getAllMangas(arrayMangas => {
             setValues(arrayMangas);
+            // console.log(arrayMangas);
         });
     }, []);
 
     return (
         <div style={styleContentMarco}>
             {values.map(manga => (
-                <>
-                    <Card key={manga.id} dataGetter={manga} />
-                </>
+                <Card key={manga.id} dataGetter={manga} />
             ))}
         </div>
     );

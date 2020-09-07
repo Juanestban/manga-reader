@@ -1,5 +1,5 @@
 export default function Card({ dataGetter }) {
-    const {id, name, imgPortada, category} = dataGetter;
+    const {id, name, imgCard, category} = dataGetter;
 
     return (
         <>
@@ -8,8 +8,9 @@ export default function Card({ dataGetter }) {
                     <h4>{name}</h4>
                 </div>
                 <img
-                    src={imgPortada}
-                    alt="Oregairu" />
+                    src={imgCard}
+                    alt="Oregairu"
+                    draggable="false" />
                 <div className={'text text-category ' + category}>
                     <h4>{category}</h4>
                 </div>
