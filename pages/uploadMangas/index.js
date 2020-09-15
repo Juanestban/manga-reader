@@ -2,8 +2,7 @@ import AppLayout from '../../components/AppLayout/index';
 import Generos from '../../components/ComponentGeners/generos';
 
 // firestore
-import { postMangas } from '../../firebase/mangas';
-import { onAuthStateChanged } from '../../firebase/client';
+import { postMangas, setImages } from '../../firebase/mangas';
 
 // style Forms
 import { styleForms } from '../../components/AppLayout/styles';
@@ -19,28 +18,19 @@ const FormUpload = () => {
         imgCard: '',
         imgPortada: '',
         type: 'Manga',
-        idAuth: ''
     };
-    // idAuth tiene que llevar el id del usuario registrado
 
     const [manga, setManga] = useState(initialManga);
     const [stateType, setStateType] = useState(true);
-    const [users, setUsers] = useState(undefined);
-
+    const [upload, setUpload] = useState(undefined);
     const [errPost, setErrPost] = useState(false);
 
-    // const getStorageLocal = () => {
-    //     const user = JSON.parse(localStorage.getItem('user'));
-    //     setUsers(user);
-    // }
 
     const checkedValue = (value) => {
-        // Falta condicional para setear los campos que esten llenos
-        // y no los que esten vacios
         setManga({ ...manga, generos: value });
     }
 
-    const changeInputs = (e) => {
+    const changeInputs = async (e) => {
         const { name, value } = e.target;
         setManga({ ...manga, [name]: value });
     }
@@ -57,22 +47,31 @@ const FormUpload = () => {
         setStateType(!stateType);
     }
 
-    // FALTA FIXEAR URGENTEMENTE
+    const handleChangeImg = (e) => {
+        const { name } = e.target;
+        const nameManga = manga.name;
+        const Files = {
+            name,
+            nameManga,
+            "file": e.target.files[0]
+        }
+
+        // Manipulacion de las archivos (type: Images) Renombrandolas || COMPLETADO
+        setImages(Files);
+        // .then(snapshot => {
+            // getMetaDataStorage();
+        // });
+    }
+
     const handleUploaderSubmit = (e) => {
         e.preventDefault();
-        const { id } = users;
-        setManga({ ...manga, idAuth: id });
-        console.log(manga);
 
-        // Aqui se subira el archivo al firebase ó firestore
-        // Arreglar el array, razon por la cual no me deja subir dichos cambios
-        if (users !== undefined && manga.generos !== undefined) {
-            postMangas(manga)
-                .then((res) => {
-                    console.log('Subido correctamente', res);
-                });
+        if (manga.generos !== undefined && manga.name !== '' && manga.description !== '') {
+            postMangas(manga);
+            setUpload(true);
         } else {
             setErrPost(true);
+            setUpload(undefined);
         }
     }
 
@@ -81,24 +80,19 @@ const FormUpload = () => {
     }
 
     useEffect(() => {
-        // getStorageLocal();
         checkedValue();
-
-        onAuthStateChanged(user => { 
-            setUsers(user);
-         });
     }, [])
 
     return (
         <>
             {
                 errPost
-                ? (<div
-                    className="error-Post" 
-                    style={{backgroundColor: 'red', textAlign: 'center', margin: '20px 0 10px 0', color: '#ffff'}}>
-                    <h4>Datos Erroneos o fantantes</h4>
-                </div>)
-                : ''
+                    ? (<div
+                        className="error-Post"
+                        style={{ backgroundColor: 'red', textAlign: 'center', margin: '20px 0 10px 0', color: '#ffff' }}>
+                        <h4>Datos Erroneos o fantantes</h4>
+                    </div>)
+                    : ''
             }
             <div className="contentForm">
                 <form>
@@ -151,6 +145,8 @@ const FormUpload = () => {
                         </label>
                         <input
                             className="buttonFileUpload"
+                            name="portManga"
+                            onChange={handleChangeImg}
                             type="file" />
                     </div>
                     <div className="form-group">
@@ -162,12 +158,15 @@ const FormUpload = () => {
                         </label>
                         <input
                             className="buttonFileUpload"
+                            name="cardManga"
+                            onChange={handleChangeImg}
                             type="file" />
                     </div>
                     <button
                         onClick={handleUploaderSubmit}
                         className="buttonSubmitFormUploader">Subir</button>
                 </form>
+                {upload ? 'Datos subidos correctamente' : ''}
             </div>
 
             <style jsx>{styleForms}</style>
