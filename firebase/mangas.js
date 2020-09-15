@@ -1,4 +1,6 @@
-import { firestore } from './key';
+import firebase, { firestore } from './key';
+
+const firestorage = firebase.storage();
 
 
 // Modificar
@@ -18,7 +20,7 @@ export const getAllMangas = (onChange) => {
     return firestore.collection('mangas').onSnapshot(querySnapshot => {
         const mangas = [];
         querySnapshot.forEach(doc => {
-            mangas.push({...doc.data(), id: doc.id});
+            mangas.push({ ...doc.data(), id: doc.id });
         });
         onChange(mangas);
     });
@@ -29,7 +31,7 @@ export const getMangasFirstTime = (onChange) => {
     return firestore.collection('mangas').onSnapshot(querySnapshot => {
         const mangas = [];
         querySnapshot.forEach(doc => {
-            mangas.push({...doc.data(), id: doc.id});
+            mangas.push({ ...doc.data(), id: doc.id });
         });
         onChange(mangas);
     });
@@ -39,4 +41,22 @@ export const getMangasFirstTime = (onChange) => {
 
 export const postMangas = (manga) => {
     return firestore.collection('mangas').add(manga);
+}
+
+// Fire Storage
+
+
+
+export const setImages = (files) => {
+    const { name, nameManga, file } = files;
+
+    const refStorage = firestorage.ref('mangas/');
+    const refName = refStorage.child(`${nameManga}/${name}.jpg`);
+    return refName.put(file);
+}
+
+export const getMetaDataStorage = (myRef) => {
+    const getRef = myRef;
+    
+    getRef.getMetadata();
 }
