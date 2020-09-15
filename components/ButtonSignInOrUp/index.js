@@ -6,7 +6,7 @@ const ButtonsSignInOrUp = ({user, handleModalSesion}) => {
     return (
         <>
             {
-                user === null &&
+                user === null || user === undefined &&
                 <>
                     <ButtonSesion
                         modalState={() => handleModalSesion(true)}>
