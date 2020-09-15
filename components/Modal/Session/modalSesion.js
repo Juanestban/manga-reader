@@ -16,6 +16,8 @@ export default function ModalSession({ changeClick, stateTypeSession = true, han
         console.log('the Button has Clicked');
     }
 
+    // Refactorizar el codigo
+    // Composision del Componente [FALTANTE]
     const FormLogin = ({ nameButton }) => {
         return (
             <>
@@ -64,6 +66,8 @@ export default function ModalSession({ changeClick, stateTypeSession = true, han
         );
     }
 
+    // Refactorizar el codigo
+    // Composision del Componente [FALTANTE]
     const Login = ({ title, nameButton }) => {
         return (
             <>
@@ -134,6 +138,8 @@ export default function ModalSession({ changeClick, stateTypeSession = true, han
         );
     }
 
+    // Refactorizar el codigo
+    // Composision del Componente [FALTANTE] || PUEDE ESPERAR
     const Register = ({ title, nameButton }) => {
         return (
             <>
