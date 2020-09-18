@@ -30,7 +30,7 @@ const FormUpload = () => {
         setManga({ ...manga, generos: value });
     }
 
-    const changeInputs = async (e) => {
+    const changeInputs = (e) => {
         const { name, value } = e.target;
         setManga({ ...manga, [name]: value });
     }
@@ -47,7 +47,7 @@ const FormUpload = () => {
         setStateType(!stateType);
     }
 
-    const handleChangeImg = (e) => {
+    const handleChangeImg = async (e) => {
         const { name } = e.target;
         const nameManga = manga.name;
         const Files = {
@@ -56,11 +56,12 @@ const FormUpload = () => {
             "file": e.target.files[0]
         }
 
-        // Manipulacion de las archivos (type: Images) Renombrandolas || COMPLETADO
-        setImages(Files);
-        // .then(snapshot => {
-            // getMetaDataStorage();
-        // });
+        // Guardar el link en un state de react y el archivo file para realizar toda la subida
+        // con pulsar el boton de [Enviar || Subir]
+        await setImages(Files).then(url => {
+            const URL = url;
+            console.log('esta es la url', URL);
+        });
     }
 
     const handleUploaderSubmit = (e) => {

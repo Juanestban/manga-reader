@@ -1,6 +1,6 @@
 import firebase, { firestore } from './key';
 
-const firestorage = firebase.storage();
+// const firestorage = firebase.;
 
 
 // Modificar
@@ -43,20 +43,21 @@ export const postMangas = (manga) => {
     return firestore.collection('mangas').add(manga);
 }
 
+
 // Fire Storage
 
-
-
-export const setImages = (files) => {
+export const setImages = async (files) => {
     const { name, nameManga, file } = files;
 
-    const refStorage = firestorage.ref('mangas/');
+    const refStorage = firebase.storage().ref('mangas/');
     const refName = refStorage.child(`${nameManga}/${name}.jpg`);
-    return refName.put(file);
+    await refName.put(file);
+
+    return await refName.getDownloadURL();
 }
 
 export const getMetaDataStorage = (myRef) => {
     const getRef = myRef;
-    
+
     getRef.getMetadata();
 }
