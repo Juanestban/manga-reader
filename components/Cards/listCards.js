@@ -22,7 +22,6 @@ export default function ListCards() {
     useEffect(() => {
         getAllMangas(arrayMangas => {
             setValues(arrayMangas);
-            // console.log(arrayMangas);
         });
     }, []);
 
