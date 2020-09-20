@@ -96,12 +96,12 @@ export default function Navigation() {
 
                 .uploadMangaLink,
                 :global(.img-profile) {
-                    fill: #293139;
+                    fill: #000000;
                 }
 
                 .uploadMangaLink:hover,
                 :global(.img-profile:hover) {
-                    fill: #000000;
+                    fill: rgb(0, 153, 255);
                 }
             `}</style>
         </>
