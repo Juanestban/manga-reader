@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 const generos = [
     "Acción",
     "Aventura",
@@ -47,19 +49,29 @@ const generos = [
     "Guerra",
 ]
 
-const sendGen = []
+let sendGen = []
 
-export default function Generos({valueSent}) {
+export default function Generos({ valueSent }) {
+    const [genero, setGenero] = useState([]);
+
     const handleChangeCheckBox = (e) => {
         const { checked, value } = e.target
         if (checked) {
-            // valueSent(value)
+            if (genero.length === 0) {
+                sendGen = []
+                setGenero([value])
+            }
+            if (genero.length > 0) {
+                setGenero([...genero, value])
+            }
             sendGen.push(value)
             valueSent(sendGen)
         } else {
-            const position = sendGen.indexOf(value)
-            sendGen.splice(position, 1)
-            valueSent(sendGen)
+            const array = genero
+            const currentPos = array.indexOf(value)
+            array.splice(currentPos, 1)
+            sendGen.splice(currentPos, 1)
+            valueSent(array)
         }
     }
 
