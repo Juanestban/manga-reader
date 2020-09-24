@@ -6,12 +6,12 @@ import Footer from '../footer';
 import styles, { globalStyles } from './styles';
 
 
-export default function AppLayout({ children, title, userData }) {
+export default function AppLayout({ children }) {
 
     return (
         <>
             <Head>
-                <title>{title}</title>
+                <title>manga-reader</title>
                 <link rel="icon" href="/favicon.ico" />
                 <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet" />
             </Head>
