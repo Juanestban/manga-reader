@@ -1,5 +1,7 @@
-export default function Card({ dataGetter }) {
-    const {id, name, imgCard, category, type} = dataGetter;
+import Link from 'next/link';
+
+export default function Card({ dataGetter, idLink }) {
+    const { name, imgCard, category, type } = dataGetter;
     let color, hover;
 
     if (type === 'Manga') {
@@ -13,17 +15,21 @@ export default function Card({ dataGetter }) {
     return (
         <>
             <div className="card">
-                <div className="text">
-                    <h4>{name}</h4>
-                </div>
-                <button className="type-read">{type.toUpperCase()}</button>
-                <img
-                    src={imgCard}
-                    alt={name}
-                    draggable="false" />
-                <div className={'text text-category ' + category}>
-                    <h4>{category}</h4>
-                </div>
+                <Link href={`/detailsManga/[id]`} as={`/detailsManga/${idLink}`}>
+                    <a>
+                        <div className="text">
+                            <h4>{name}</h4>
+                        </div>
+                        <button className="type-read">{type.toUpperCase()}</button>
+                        <img
+                            src={imgCard}
+                            alt={name}
+                            draggable="false" />
+                        <div className={'text text-category ' + category}>
+                            <h4>{category}</h4>
+                        </div>
+                    </a>
+                </Link>
             </div>
             <style jsx>{`
                 .card {

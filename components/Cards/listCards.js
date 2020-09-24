@@ -28,7 +28,7 @@ export default function ListCards() {
     return (
         <div style={styleContentMarco}>
             {values.map(manga => (
-                <Card key={manga.id} dataGetter={manga} />
+                <Card key={manga.id} dataGetter={manga} idLink={manga.id} />
             ))}
         </div>
     );
