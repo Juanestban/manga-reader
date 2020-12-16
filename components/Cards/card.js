@@ -15,6 +15,7 @@ export default function Card({ dataGetter, idLink }) {
     return (
         <>
             <div className="card">
+                {/* Este href="" as="" => Nextjs v10 lo resuelve, MIRAR EN LA DOCUMENTACION */}
                 <Link href={`/detailsManga/[id]`} as={`/detailsManga/${idLink}`}>
                     <a>
                         <div className="text">
